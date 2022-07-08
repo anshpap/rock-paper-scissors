@@ -1,10 +1,10 @@
 function computerPlay() {
     let randomNumber = parseInt(Math.random() * 3);    //returns 0, 1, or 2
     if (randomNumber === 0) {
-        return 'Rock';
+        return 'rock';
     } else if (randomNumber === 1) {
-        return 'Paper';
+        return 'paper';
     } else {
-        return 'Scissors';
+        return 'scissors';
     }
 }
