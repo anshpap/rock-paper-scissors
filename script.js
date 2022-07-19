@@ -2,74 +2,104 @@ function computerPlay() {
     let randomNumber = parseInt(Math.random() * 3);     //returns 0, 1, or 2
 
     if (randomNumber === 0) {
-        return 'rock';
+        return 'Rock';
     } else if (randomNumber === 1) {
-        return 'paper';
+        return 'Paper';
     } else {
-        return 'scissors';
+        return 'Scissors';
     }
 }
 
-function playRound(playerSelection, computerSelection) {
+function calculateRoundWinner(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {        //Player and computer choose the same
-        return 'draw';
+        return 'Draw';
     }
 
-    if (playerSelection === 'rock') {                   //Player chooses rock
-        if (computerSelection === 'scissors') {
-            return 'player wins';
+    if (playerSelection === 'Rock') {                   //Player chooses rock
+        if (computerSelection === 'Scissors') {
+            return 'player';
         } else {
-            return 'computer wins';
+            return 'computer';
         }
-    } else if (playerSelection === 'paper') {           //Player chooses paper
-        if (computerSelection === 'rock') {
-            return 'player wins';
+    } else if (playerSelection === 'Paper') {           //Player chooses paper
+        if (computerSelection === 'Rock') {
+            return 'player';
         } else {
-            return 'computer wins';
+            return 'computer';
         }
     } else {                                            //Player chooses scissors
-        if (computerSelection === 'paper') {
-            return 'player wins';
+        if (computerSelection === 'Paper') {
+            return 'player';
         } else {
-            return 'computer wins';
+            return 'computer';
         }
     }
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+let playerScore = 0;
+let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt('Enter your choice');
-        playerSelection = playerSelection.toLowerCase();
+let resultBox = document.querySelector('#result-box');
+
+const choices = document.querySelectorAll('button');
+
+choices.forEach(choice => {
+    choice.addEventListener('click', function() {
+        let playerSelection = choice.id.substring(0,1).toUpperCase() + choice.id.substring(1);
         let computerSelection = computerPlay();
-        let result = playRound(playerSelection, computerSelection);
 
-        if (result === 'player wins') {
+        let winner = calculateRoundWinner(playerSelection, computerSelection);
+        if (winner === 'player') {
             playerScore++;
-            console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
-        } else if (result === 'computer wins') {
+            resultBox.textContent = `You win! ${playerSelection} beats ${computerSelection}.`;
+        } else if (winner === 'computer') {
             computerScore++;
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+            resultBox.textContent = `You lose! ${computerSelection} beats ${playerSelection}.`;
         } else {
-            console.log(`It's a draw! You both selected ${playerSelection}`);
+            resultBox.textContent = `It\'s a draw! You both chose ${playerSelection}`;
         }
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer's score: ${computerScore}`);
-    }
 
-    declareWinner(playerScore, computerScore);
-}
+        resultBox.innerHTML += '<br>';
+        resultBox.innerHTML += `Player score: ${playerScore}<br>`;
+        resultBox.innerHTML += `Computer score: ${computerScore}<br>`;
 
-function declareWinner(playerScore, computerScore) {
-    if (playerScore > computerScore) {
-        console.log('You won the game!');
-    } else if (computerScore > playerScore) {
-        console.log('You lost the game!');
-    } else {
-        console.log('It\'s a draw!');
-    }
-}
+    });
+});
 
-game();
+// function game() {
+//     let playerScore = 0;
+//     let computerScore = 0;
+
+//     for (let i = 0; i < 5; i++) {
+//         let playerSelection = prompt('Enter your choice');
+//         playerSelection = playerSelection.toLowerCase();
+//         let computerSelection = computerPlay();
+//         let result = playRound(playerSelection, computerSelection);
+
+//         if (result === 'player wins') {
+//             playerScore++;
+//             console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+//         } else if (result === 'computer wins') {
+//             computerScore++;
+//             console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+//         } else {
+//             console.log(`It's a draw! You both selected ${playerSelection}`);
+//         }
+//         console.log(`Your score: ${playerScore}`);
+//         console.log(`Computer's score: ${computerScore}`);
+//     }
+
+//     declareWinner(playerScore, computerScore);
+// }
+
+// function declareWinner(playerScore, computerScore) {
+//     if (playerScore > computerScore) {
+//         console.log('You won the game!');
+//     } else if (computerScore > playerScore) {
+//         console.log('You lost the game!');
+//     } else {
+//         console.log('It\'s a draw!');
+//     }
+// }
+
+// game();
