@@ -59,6 +59,12 @@ function game(e) {
 }
 
 function endGame() {
+    if (playerScore > computerScore) {
+        resultBox.textContent = 'You won the game!';
+    } else {
+        resultBox.textContent = 'You lost the game!';
+    }
+
     choices.forEach(choice => {
         choice.removeEventListener('click', game);
         choice.disabled = true;
