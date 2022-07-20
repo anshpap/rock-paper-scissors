@@ -63,6 +63,27 @@ function endGame() {
         choice.removeEventListener('click', game);
         choice.disabled = true;
     });
+
+    const playAgain = document.createElement('button');
+    playAgain.setAttribute('id', 'play-again');
+    playAgain.textContent = 'Play Again';
+    playAgain.addEventListener('click', restartGame);
+
+    document.body.appendChild(playAgain);
+}
+
+function restartGame() {
+    choices.forEach(choice => {
+        choice.addEventListener('click', game);
+        choice.disabled = false;
+    });
+
+    document.querySelector('#play-again').remove();
+
+    playerScore = 0;
+    computerScore = 0;
+    resultBox.innerHTML = '';
+    scoreBox.innerHTML = '';
 }
 
 let playerScore = 0;
@@ -70,7 +91,6 @@ let computerScore = 0;
 
 const resultBox = document.querySelector('#result-box');
 const scoreBox = document.querySelector('#score-box');
-
 const choices = document.querySelectorAll('button');
 
 choices.forEach(choice => {
