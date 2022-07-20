@@ -12,7 +12,7 @@ function computerPlay() {
 
 function calculateRoundWinner(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {        //Player and computer choose the same
-        return 'Draw';
+        return 'draw';
     }
 
     if (playerSelection === 'Rock') {                   //Player chooses rock
@@ -36,34 +36,45 @@ function calculateRoundWinner(playerSelection, computerSelection) {
     }
 }
 
+function game(e) {
+    let playerSelection = e.target.id.substring(0,1).toUpperCase() + e.target.id.substring(1);
+    let computerSelection = computerPlay();
+    let winner = calculateRoundWinner(playerSelection, computerSelection);
+
+    if (winner === 'player') {
+        playerScore++;
+        resultBox.textContent = `You win! ${playerSelection} beats ${computerSelection}.`;
+    } else if (winner === 'computer') {
+        computerScore++;
+        resultBox.textContent = `You lose! ${computerSelection} beats ${playerSelection}.`;
+    } else {
+        resultBox.textContent = `It\'s a draw! You both chose ${playerSelection}`;
+    }
+
+    scoreBox.innerHTML = `Player score: ${playerScore}<br>Computer score: ${computerScore}<br>`;
+
+    if (playerScore === 5 || computerScore === 5) {
+        endGame();
+    }
+}
+
+function endGame() {
+    choices.forEach(choice => {
+        choice.removeEventListener('click', game);
+        choice.disabled = true;
+    });
+}
+
 let playerScore = 0;
 let computerScore = 0;
 
-let resultBox = document.querySelector('#result-box');
+const resultBox = document.querySelector('#result-box');
+const scoreBox = document.querySelector('#score-box');
 
 const choices = document.querySelectorAll('button');
 
 choices.forEach(choice => {
-    choice.addEventListener('click', function() {
-        let playerSelection = choice.id.substring(0,1).toUpperCase() + choice.id.substring(1);
-        let computerSelection = computerPlay();
-
-        let winner = calculateRoundWinner(playerSelection, computerSelection);
-        if (winner === 'player') {
-            playerScore++;
-            resultBox.textContent = `You win! ${playerSelection} beats ${computerSelection}.`;
-        } else if (winner === 'computer') {
-            computerScore++;
-            resultBox.textContent = `You lose! ${computerSelection} beats ${playerSelection}.`;
-        } else {
-            resultBox.textContent = `It\'s a draw! You both chose ${playerSelection}`;
-        }
-
-        resultBox.innerHTML += '<br>';
-        resultBox.innerHTML += `Player score: ${playerScore}<br>`;
-        resultBox.innerHTML += `Computer score: ${computerScore}<br>`;
-
-    });
+    choice.addEventListener('click', game);
 });
 
 // function game() {
