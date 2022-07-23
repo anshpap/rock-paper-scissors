@@ -48,7 +48,7 @@ function game(e) {
         computerScore++;
         resultBox.textContent = `You lose! ${computerSelection} beats ${playerSelection}.`;
     } else {
-        resultBox.textContent = `It\'s a draw! You both chose ${playerSelection}`;
+        resultBox.textContent = `It\'s a draw! You both chose ${playerSelection}.`;
     }
 
     scoreBox.innerHTML = `Player score: ${playerScore}<br>Computer score: ${computerScore}<br>`;
