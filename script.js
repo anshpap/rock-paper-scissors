@@ -37,7 +37,6 @@ function calculateRoundWinner(playerSelection, computerSelection) {
 }
 
 function game(e) {
-    console.log(e);
     const playerSelection = e.currentTarget.id.substring(0,1).toUpperCase() + e.currentTarget.id.substring(1);
     const computerSelection = computerPlay();
     const winner = calculateRoundWinner(playerSelection, computerSelection);
