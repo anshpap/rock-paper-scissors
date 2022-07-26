@@ -103,4 +103,5 @@ img {
     background-color: #1A1A1D;
     border: solid 1px white;
     border-radius: 8px;
+    cursor: pointer;
 }

@@ -71,12 +71,7 @@ function endGame() {
         choice.style.cursor = 'default';
     });
 
-    const playAgain = document.createElement('button');
-    playAgain.textContent = 'Play Again';
-    playAgain.addEventListener('click', restartGame);
-    playAgain.style.cursor = 'pointer';
-
-    document.querySelector('#play-again').appendChild(playAgain);
+    document.querySelector('#play-again').appendChild(playAgainButton);
 }
 
 function restartGame() {
@@ -86,7 +81,7 @@ function restartGame() {
         choice.style.cursor = 'pointer';
     });
 
-    document.querySelector('#play-again button').remove();
+    playAgainButton.remove();
 
     playerScore = 0;
     computerScore = 0;
@@ -99,9 +94,13 @@ let computerScore = 0;
 
 const resultBox = document.querySelector('#result-box');
 const scoreBox = document.querySelector('#score-box');
-const choices = document.querySelectorAll('button');
+const choices = document.querySelectorAll('.choices button');
+const playAgainButton = document.querySelector('#play-again button')
 
 choices.forEach(choice => {
     choice.addEventListener('click', game);
     choice.style.cursor = 'pointer';
 });
+
+playAgainButton.remove();
+playAgainButton.addEventListener('click', restartGame);
