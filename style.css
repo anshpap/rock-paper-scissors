@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Sen');
+
+body {
+    margin: 0;
+    background-color: #1A1A1D;
+    color: white;
+}
+
+#header {
+    padding: 32px;
+}
+
+.title {
+    font-family: Sen, Arial, Helvetica, sans-serif;
+    font-size: 56px;
+    font-weight: 900;
+    color: #C3073F;
+    text-shadow: 3.5px 3.5px 1px #6F2232;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+#game-box {
+    display: flex;
+}
