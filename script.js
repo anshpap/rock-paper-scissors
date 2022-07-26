@@ -73,11 +73,11 @@ function endGame() {
     });
 
     const playAgain = document.createElement('button');
-    playAgain.setAttribute('id', 'play-again');
     playAgain.textContent = 'Play Again';
     playAgain.addEventListener('click', restartGame);
+    playAgain.style.cursor = 'pointer';
 
-    document.body.appendChild(playAgain);
+    document.querySelector('#play-again').appendChild(playAgain);
 }
 
 function restartGame() {
@@ -87,7 +87,7 @@ function restartGame() {
         choice.style.cursor = 'pointer';
     });
 
-    document.querySelector('#play-again').remove();
+    document.querySelector('#play-again button').remove();
 
     playerScore = 0;
     computerScore = 0;
