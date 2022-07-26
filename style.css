@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Sen');
+@import url('https://fonts.googleapis.com/css?family=Sen|Saira');
 
 body {
     margin: 0;
@@ -8,11 +8,12 @@ body {
 
 #header {
     padding: 32px;
+    margin-bottom: 16px;
 }
 
 .title {
     font-family: Sen, Arial, Helvetica, sans-serif;
-    font-size: 56px;
+    font-size: 60px;
     font-weight: 900;
     color: #C3073F;
     text-shadow: 3.5px 3.5px 1px #6F2232;
@@ -22,5 +23,52 @@ body {
 }
 
 #game-box {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.name {
+    font-family: Saira, Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    font-weight: 900;
+    color: black;
+    text-shadow: -1.3px 0 white, 0 1.3px white, 1.3px 0 white, 0 -1.3px white;
+    letter-spacing: px;
+}
+
+.player,
+.computer {
+    text-align: center;
+}
+
+.selection {
+    height: 256px;
+    width: 256px;
+    border: solid #4E4E50 5px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    margin: 0 auto 24px auto;
+}
+
+.choices {
+    display: flex;
+    gap: 36px;
+    justify-content: center;
+}
+
+.player button {
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+    background-color: black;
+    border: solid 1px white;
+    border-radius: 8px;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
     display: flex;
 }
