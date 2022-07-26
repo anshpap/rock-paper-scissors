@@ -61,7 +61,6 @@ body {
 .player button {
     height: 70px;
     width: 70px;
-    cursor: pointer;
     background-color: black;
     border: solid 1px white;
     border-radius: 8px;
