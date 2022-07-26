@@ -37,7 +37,8 @@ function calculateRoundWinner(playerSelection, computerSelection) {
 }
 
 function game(e) {
-    const playerSelection = e.target.id.substring(0,1).toUpperCase() + e.target.id.substring(1);
+    console.log(e);
+    const playerSelection = e.currentTarget.id.substring(0,1).toUpperCase() + e.currentTarget.id.substring(1);
     const computerSelection = computerPlay();
     const winner = calculateRoundWinner(playerSelection, computerSelection);
 
@@ -68,6 +69,7 @@ function endGame() {
     choices.forEach(choice => {
         choice.removeEventListener('click', game);
         choice.disabled = true;
+        choice.style.cursor = 'default';
     });
 
     const playAgain = document.createElement('button');
@@ -82,6 +84,7 @@ function restartGame() {
     choices.forEach(choice => {
         choice.addEventListener('click', game);
         choice.disabled = false;
+        choice.style.cursor = 'pointer';
     });
 
     document.querySelector('#play-again').remove();
@@ -101,4 +104,5 @@ const choices = document.querySelectorAll('button');
 
 choices.forEach(choice => {
     choice.addEventListener('click', game);
+    choice.style.cursor = 'pointer';
 });
