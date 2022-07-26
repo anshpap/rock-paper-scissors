@@ -33,7 +33,7 @@ body {
     letter-spacing: 1px;
     margin-bottom: 16px;
     font-weight: 900;
-    color: black;
+    color: #1A1A1D;
     text-shadow: -1.3px 0 white, 0 1.3px white, 1.3px 0 white, 0 -1.3px white;
     letter-spacing: px;
 }
@@ -62,7 +62,7 @@ body {
 .player button {
     height: 70px;
     width: 70px;
-    background-color: black;
+    background-color: #1A1A1D;
     border: solid 1px white;
     border-radius: 8px;
     text-align: center;
@@ -87,7 +87,7 @@ img {
 }
 
 #score-box {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #play-again {
@@ -100,7 +100,7 @@ img {
     font-size: 20px;
     font-family: Raleway, Arial, Helvetica, sans-serif;
     padding: 8px 16px;
-    background-color: black;
+    background-color: #1A1A1D;
     border: solid 1px white;
     border-radius: 8px;
 }
