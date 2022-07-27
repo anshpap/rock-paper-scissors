@@ -66,9 +66,11 @@ function endGame() {
     }
 
     choices.forEach(choice => {
+        choice.classList.remove('hover');
         choice.remove();
     });
 
+    playAgainButton.classList.remove('hover');
     document.querySelector('#play-again').appendChild(playAgainButton);
 }
 
@@ -92,6 +94,7 @@ const resultBox = document.querySelector('#result-box');
 const scoreBox = document.querySelector('#score-box');
 const choices = document.querySelectorAll('.choices button');
 const playAgainButton = document.querySelector('#play-again button')
+const allButtons = document.querySelectorAll('button');
 
 choices.forEach(choice => {
     choice.addEventListener('click', game);
@@ -99,4 +102,22 @@ choices.forEach(choice => {
 });
 
 playAgainButton.remove();
-playAgainButton.addEventListener('click', restartGame);
+playAgainButton.addEventListener('click', () => {
+    setTimeout(restartGame, 200);
+});
+
+allButtons.forEach(button => {
+    button.addEventListener('mouseover', () => {
+        button.classList.add('hover');
+    });
+    button.addEventListener('mouseout', () => {
+        button.classList.remove('hover');
+        button.classList.remove('clicked');
+    });
+    button.addEventListener('click', () => {
+        button.classList.add('clicked');
+        setTimeout(() => {
+            button.classList.remove('clicked');
+        }, 80);
+    });
+});
