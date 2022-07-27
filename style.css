@@ -42,7 +42,7 @@ body {
     text-align: center;
 }
 
-.selection {
+.selection-window {
     height: 256px;
     width: 256px;
     border: solid #4E4E50 5px;
