@@ -43,22 +43,31 @@ async function animate(playerSelection, computerSelection, winner) {
     const playerWindow = document.querySelector('.player .selection-window');
     const computerWindow = document.querySelector('.computer .selection-window');
 
-    playerSelectionImg = document.createElement('img');
+    const playerSelectionImg = document.createElement('img');
     playerSelectionImg.src = './images/rock.png';
-    playerSelectionImg.classList.add('player-default-rock');
+    playerSelectionImg.classList.add('player-selection-img');
     playerWindow.appendChild(playerSelectionImg);
+
+    const computerSelectionImg = document.createElement('img');
+    computerSelectionImg.src = './images/rock.png';
+    computerSelectionImg.classList.add('computer-selection-img');
+    computerWindow.appendChild(computerSelectionImg);
 
     await delay(1000);
     for (let i = 0; i < 3; i++) {
-        playerSelectionImg.classList.add('down-motion');
+        playerSelectionImg.classList.add('player-down-motion');
+        computerSelectionImg.classList.add('computer-down-motion');
         await delay(400);
-        playerSelectionImg.classList.remove('down-motion');
+        playerSelectionImg.classList.remove('player-down-motion');
+        computerSelectionImg.classList.remove('computer-down-motion');
         await delay(400);
     }
 
-    playerSelectionImg.classList.add('down-motion');
+    playerSelectionImg.classList.add('player-down-motion');
+    computerSelectionImg.classList.add('computer-down-motion');
     await delay(125);
     playerSelectionImg.src = `./images/${playerSelection}.png`;
+    computerSelectionImg.src = `./images/${computerSelection}.png`;
 }
 
 function game(e) {

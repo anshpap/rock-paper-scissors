@@ -115,13 +115,24 @@ button.clicked {
     transform: scale(1);
 }
 
-.player-default-rock {
+.player-selection-img {
     width: 130px;
     height: auto;
     transform: translateX(10px) translateY(30px) rotate(-60deg);
     transition: transform 0.25s ease;
 }
 
-.down-motion {
+.computer-selection-img {
+    width: 130px;
+    height: auto;
+    transform: translateX(116px) translateY(30px) rotate(60deg) rotateY(180deg);
+    transition: transform 0.25s ease;
+}
+
+.player-down-motion {
     transform: rotate(0deg) translateX(60px) translateY(80px);
+}
+
+.computer-down-motion {
+    transform: rotateY(180deg) translateX(-60px) translateY(80px);
 }
