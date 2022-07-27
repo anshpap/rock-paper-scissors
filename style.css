@@ -114,3 +114,14 @@ button.hover {
 button.clicked {
     transform: scale(1);
 }
+
+.player-default-rock {
+    width: 130px;
+    height: auto;
+    transform: translateX(10px) translateY(30px) rotate(-60deg);
+    transition: transform 0.25s ease;
+}
+
+.down-motion {
+    transform: rotate(0deg) translateX(60px) translateY(80px);
+}

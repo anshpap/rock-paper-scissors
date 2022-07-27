@@ -1,3 +1,5 @@
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 function computerPlay() {
     let randomNumber = parseInt(Math.random() * 3);     //returns 0, 1, or 2
 
@@ -36,10 +38,35 @@ function calculateRoundWinner(playerSelection, computerSelection) {
     }
 }
 
+
+async function animate(playerSelection, computerSelection, winner) {
+    const playerWindow = document.querySelector('.player .selection-window');
+    const computerWindow = document.querySelector('.computer .selection-window');
+
+    playerSelectionImg = document.createElement('img');
+    playerSelectionImg.src = './images/rock.png';
+    playerSelectionImg.classList.add('player-default-rock');
+    playerWindow.appendChild(playerSelectionImg);
+
+    await delay(1000);
+    for (let i = 0; i < 3; i++) {
+        playerSelectionImg.classList.add('down-motion');
+        await delay(400);
+        playerSelectionImg.classList.remove('down-motion');
+        await delay(400);
+    }
+
+    playerSelectionImg.classList.add('down-motion');
+    await delay(125);
+    playerSelectionImg.src = `./images/${playerSelection}.png`;
+}
+
 function game(e) {
     const playerSelection = e.currentTarget.id.substring(0,1).toUpperCase() + e.currentTarget.id.substring(1);
     const computerSelection = computerPlay();
     const winner = calculateRoundWinner(playerSelection, computerSelection);
+
+    animate(playerSelection.toLowerCase(), computerSelection.toLowerCase(), winner);
 
     if (winner === 'player') {
         playerScore++;
