@@ -53,17 +53,21 @@ body {
 
 .choices {
     display: flex;
-    gap: 36px;
+    gap: 25px;
     justify-content: center;
     margin-bottom: 24px;
+}
+
+button {
+    background-color: #1A1A1D;
+    border: solid 1px white;
+    border-radius: 8px;
+    transition-duration: 0.15s; 
 }
 
 .player button {
     height: 70px;
     width: 70px;
-    background-color: #1A1A1D;
-    border: solid 1px white;
-    border-radius: 8px;
     text-align: center;
 }
 
@@ -100,8 +104,5 @@ img {
     font-size: 20px;
     font-family: Raleway, Arial, Helvetica, sans-serif;
     padding: 8px 16px;
-    background-color: #1A1A1D;
-    border: solid 1px white;
-    border-radius: 8px;
     cursor: pointer;
 }

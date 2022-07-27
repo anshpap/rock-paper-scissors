@@ -66,9 +66,7 @@ function endGame() {
     }
 
     choices.forEach(choice => {
-        choice.removeEventListener('click', game);
-        choice.disabled = true;
-        choice.style.cursor = 'default';
+        choice.remove();
     });
 
     document.querySelector('#play-again').appendChild(playAgainButton);
@@ -76,9 +74,7 @@ function endGame() {
 
 function restartGame() {
     choices.forEach(choice => {
-        choice.addEventListener('click', game);
-        choice.disabled = false;
-        choice.style.cursor = 'pointer';
+        document.querySelector('.choices').appendChild(choice);
     });
 
     playAgainButton.remove();
