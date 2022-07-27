@@ -136,3 +136,13 @@ button.clicked {
 .computer-down-motion {
     transform: rotateY(180deg) translateX(-60px) translateY(80px);
 }
+
+.rock,
+.paper,
+.scissors {
+    transition: transform 0.25s ease;
+}
+
+.title-animate {
+    transform: scale(1.3);
+}

@@ -56,14 +56,18 @@ async function animate(playerSelection, computerSelection, winner) {
     computerSelectionImg.classList.add('computer-selection-img');
     computerWindow.appendChild(computerSelectionImg);
 
+    const title = [document.querySelector('.rock'), document.querySelector('.paper'), document.querySelector('.scissors')];
+
     await delay(1000);
     for (let i = 0; i < 3; i++) {
         playerSelectionImg.classList.add('player-down-motion');
         computerSelectionImg.classList.add('computer-down-motion');
+        title[i].classList.add('title-animate');
 
         await delay(400);
         playerSelectionImg.classList.remove('player-down-motion');
         computerSelectionImg.classList.remove('computer-down-motion');
+        title[i].classList.remove('title-animate');
 
         await delay(400);
     }
