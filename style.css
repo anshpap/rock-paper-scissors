@@ -155,6 +155,10 @@ button.clicked {
     transition: transform 0.25s ease;
 }
 
-.title-animate {
+.shoot-animate {
     transform: scale(1.3);
+}
+
+.title-animate {
+    transform: translateY(16px);
 }
