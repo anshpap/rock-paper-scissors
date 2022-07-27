@@ -75,9 +75,16 @@ async function animate(playerSelection, computerSelection, winner) {
     playerSelectionImg.classList.add('player-down-motion');
     computerSelectionImg.classList.add('computer-down-motion');
 
+    const shoot = document.querySelector('.shoot');
+    shoot.textContent = 'Shoot!';
+    shoot.classList.add('title-animate');
+
     await delay(125);
     playerSelectionImg.src = `./images/${playerSelection}.png`;
     computerSelectionImg.src = `./images/${computerSelection}.png`;
+
+
+    shoot.classList.remove('title-animate');
     
     showResult(playerSelection, computerSelection, winner);
 }
@@ -89,6 +96,7 @@ function game(e) {
     });
 
     resultBox.innerHTML = '<br>';
+    document.querySelector('.shoot').innerHTML = '<br>';
 
     const playerSelection = e.currentTarget.id;
     const computerSelection = computerPlay();
@@ -150,8 +158,9 @@ function restartGame() {
 
     playerScore = 0;
     computerScore = 0;
-    resultBox.innerHTML = '';
-    scoreBox.innerHTML = '';
+    resultBox.innerHTML = '<br>';
+    scoreBox.innerHTML = `Player score: 0<br>Computer score: 0<br>`;
+    document.querySelector('.shoot').innerHTML = '<br>';
 }
 
 let playerScore = 0;
