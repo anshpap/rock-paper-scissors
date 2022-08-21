@@ -1,6 +1,7 @@
 # Rock Paper Scissors
 
 A simple website to play rock paper scissors against the computer. First to 5 wins.
+
 Built using HTML, CSS, and JavaScript.
 
 ---
